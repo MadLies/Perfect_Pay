@@ -61,7 +61,7 @@
                         />
                     <Label
                          x:Name="lblSubtotal"
-                         Text="$xxx"
+                         Text="$0.00"
                          FontAttributes="Bold"/>
                     <Label
                         Margin="0,20,0,5"
@@ -70,7 +70,7 @@
 
                     <Label
                         x:Name="lblTip"
-                        Text="$xxx"
+                        Text="$0.00"
                         FontAttributes="Bold"/>
                 </VerticalStackLayout>
             </Grid>
@@ -93,11 +93,12 @@
                    HorizontalOptions="Center"
                    />
             <Entry 
-                x:Name="bill"
+                x:Name="txtBill"
                 Grid.Column="1"
                 Background="{StaticResource Section}"
                 Keyboard="Numeric"
                 Text="0.0"
+                Completed="txtBill_Completed"
                 TextColor="{StaticResource LightFont}"
                 VerticalOptions="Center"
                 HorizontalTextAlignment="Center"
@@ -119,21 +120,24 @@
                     Text="10%"
                     TextColor="{StaticResource LightFont}"
                     BackgroundColor="{StaticResource DarkFont}"
+                    Clicked="Button_Clicked"
                     WidthRequest="60"/>
                     
                 <Button
                     Text="15%"
                     TextColor="{StaticResource LightFont}"
                     BackgroundColor="{StaticResource DarkFont}"
+                    Clicked="Button_Clicked"
                      WidthRequest="60"/>
                 <Button
                     Text="20%"
                     TextColor="{StaticResource LightFont}"
                     BackgroundColor="{StaticResource DarkFont}"
+                    Clicked="Button_Clicked"
                     WidthRequest="60"/>
             </HorizontalStackLayout>
             <Label
-                x:Name="tip"
+                x:Name="porcentTip"
                 Grid.Row="2"
                 Text="Tip: 0%"
                 TextColor="{StaticResource LightFont}"
@@ -145,6 +149,7 @@
                 Grid.Row="2"
                 Minimum="0"
                 Maximum="50"
+                ValueChanged="sldTip_ValueChanged"
                 />
 
             <Label Grid.Row="3"
@@ -160,7 +165,8 @@
                         Text="-"
                         WidthRequest="50"
                         BackgroundColor="{StaticResource DarkFont}"
-                        TextColor="{StaticResource LightFont}"/>
+                        TextColor="{StaticResource LightFont}"
+                        Clicked="btnMinus_Clicked"/>
                 <Label x:Name="lblPerson"
                        Margin="-5,0,-5,0"
                        ZIndex="1"
@@ -175,11 +181,12 @@
                        VerticalTextAlignment="Center"
                        WidthRequest="80"
                        />
-                <Button x:Name="max"
+                <Button x:Name="btnMax"
                         Text="+"
                         WidthRequest="50"
                         BackgroundColor="{StaticResource DarkFont}"
-                        TextColor="{StaticResource LightFont}"/>
+                        TextColor="{StaticResource LightFont}"
+                        Clicked="btnMax_Clicked"/>
 
             </HorizontalStackLayout>
         </Grid>
